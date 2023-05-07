@@ -11,7 +11,7 @@ on:
       config:
         description: 'Input config script file name without ".sh". "all" to build all the configs.'
         required: true
-        default: 'configs/bcm2711-raspi4-openwrt.sh'
+        default: 'configs/arm64-with-docker.sh'
       txt:
         description: Release note txt file name.
         required: true
@@ -33,7 +33,7 @@ jobs:
       - name: Set ENV
         if: github.event.schedule=='0 21 * * 5'
         run: |
-          echo "CONFIG='configs/bcm2711-raspi4-openwrt.sh'" >> $GITHUB_ENV
+          echo "CONFIG='configs/arm64-with-docker.sh'" >> $GITHUB_ENV
           echo "TXT=release_note.txt" >> $GITHUB_ENV
 
       - name: Checkout
